@@ -2,7 +2,6 @@ use std::io;
 use std::time::{SystemTime, UNIX_EPOCH};
 fn main() {
     let random_number: u32 = generate_random_number(101);
-    println!("{}", random_number);
 
     println!("A number has been between 0 and 100 has been generated. Guess the number!");
 
@@ -48,13 +47,15 @@ fn get_guess_as_i32(guess: String) -> i32 {
 
 
 /*
-Generates a random number between 0 and m
+Generates a random number between 0 and m using a linear congruential generator
 */
 fn generate_random_number(m: u32) -> u32 {
+    // glibc multiplier and increment
     let multiplier: u32 = 1103515245;
     let increment: u32 = 12345;
     let seed: u32 = get_time_since_unix_epoch_in_nanoseconds();
 
+    // Linear congruential generator
     (multiplier.wrapping_mul(seed) + increment) % m
 }
 
