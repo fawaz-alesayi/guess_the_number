@@ -1,5 +1,5 @@
 ### Guess The Number
-A simple Rust CLI program that generates a random number and lets you guess it.
+A simple Rust CLI program that generates a random number between 0 and 100 and lets you guess it until you get it right.
 
 ### Usage
 ```bash
